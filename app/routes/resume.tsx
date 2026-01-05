@@ -7,7 +7,7 @@ import Details from "~/components/Details";
 
 export const routes = ()=> ([
     {title: 'Resumind | Review'},
-    {mame: 'description', content: 'Details overview of your resume' },
+    {name: 'description', content: 'Details overview of your resume' },
         ])
 
 const Resume = () => {
@@ -50,7 +50,7 @@ const Resume = () => {
     }, [id]);
 
     return (
-        <main className="pt-0!">
+        <main className="!pt-0">
             <nav className="resume-nav">
                 <Link to="/" className="back-button">
                     <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
@@ -86,6 +86,7 @@ const Resume = () => {
 
 
                 </section>
+
             </div>
         </main>
     )
