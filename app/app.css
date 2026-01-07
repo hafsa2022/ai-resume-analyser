@@ -114,6 +114,14 @@ form {
   .uploader-selected-file {
     @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
   }
+  .dashboard-nav {
+    @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
+  }
+
+}
+@utility bg-image{
+   background-image: url('/images/bg-main.svg');
+    background-size: cover;
 }
 
 @utility bg-gradient {

@@ -3,8 +3,8 @@ import { Link, Outlet } from "react-router";
 
 const DashboardLayout = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <div className="">
-      <nav className="resume-nav">
+    <div>
+      <nav className="dashboard-nav">
         <Link to="/" className="back-button">
           <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
           <span className="text-gray-800 text-sm font-semibold">Back to Homepage</span>
