@@ -34,6 +34,18 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
+### Dashboard
+
+A simple User Analytics Dashboard is available at `/dashboard` (authenticated users only).
+
+Charts are rendered with `recharts`. Install the dependency if you don't have it:
+
+```bash
+npm install recharts
+```
+
+The dashboard uses a mock analytics service located at `app/lib/analyticsService.ts`.
+
 ## Building for Production
 
 Create a production build:

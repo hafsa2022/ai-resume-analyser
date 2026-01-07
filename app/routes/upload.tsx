@@ -35,14 +35,18 @@ const Upload = () => {
         if(!uploadedImage) return setStatusText('Error: Failed to upload image');
 
         setStatusText('Preparing data...');
+       
         const uuid = generateUUID();
-        const data = {
+        const data: any = {
             id: uuid,
             resumePath: uploadedFile.path,
             imagePath: uploadedImage.path,
-            companyName, jobTitle, jobDescription,
+            companyName,
+            jobTitle,
+            jobDescription,
             feedback: '',
-        }
+            createdAt: new Date().toISOString(),
+        };
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
         setStatusText('Analyzing...');
@@ -51,7 +55,7 @@ const Upload = () => {
             uploadedFile.path,
             prepareInstructions({ jobTitle, jobDescription })
         )
-        console.log(feedback);
+
         if (!feedback) return setStatusText('Error: Failed to analyze resume');
 
         let feedbackText = typeof feedback.message.content === 'string'
@@ -65,6 +69,7 @@ const Upload = () => {
             .trim();
 
         data.feedback = JSON.parse(feedbackText);
+        // update persisted record with analysis result
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         // console.log(data);
